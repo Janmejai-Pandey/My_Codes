@@ -11,18 +11,22 @@ int main()
     str[n - 1] = str[n - 1] == '\n' ? str[n - 1] = '\0' : str[n - 1];
     n--;
 
-    int countVowels = 0, countConsonats = 0;
-    for (size_t i = 0; i < n; i++)
+    char ch;
+    printf("Enter character to insert - ");
+    scanf(" %c", &ch);
+    printf("Enter position to insert character - ");
+    int pos;
+    scanf("%d", &pos);
+    
+    if (pos < 0 || pos > n)
     {
-        if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u' || str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U')
-        {
-            countVowels++;
-        }
-        else if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
-        {
-            countConsonats++;
-        }
+        printf("Invalid position\n");
+        return 1;
     }
-    printf("Vowels - %d\nConsonants - %d\n", countVowels, countConsonats);
+    for (int i = n; i >= pos; i--)
+        str[i + 1] = str[i];
+    str[pos] = ch;
+    printf("\nString after insertion - ");
+    puts(str);
     return 0;
 }
