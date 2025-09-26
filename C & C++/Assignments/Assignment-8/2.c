@@ -11,5 +11,7 @@ int main(){
         ptr++;
     }
     printf("Length of string = %d",ptr-str);
+
+    printf("\nJanmejai Pandey 2501030199 B4\n");
     return 0;
 }
