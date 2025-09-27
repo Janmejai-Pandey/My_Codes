@@ -51,39 +51,29 @@
 
 
 
+// 
+
 #include<stdio.h>
 
 int main(){
     int num;
-    printf("Enter number of elements - ");
+    printf("Enter a number - ");
     scanf("%d",&num);
 
-    int ar[num];
-    printf("Enter %d elements in array - \n",num);
-    for (int i = 0; i < num; i++)
+    for (int i = 1; i <= num; i++)
     {
-        scanf("%d",&ar[i]);
-    }
-    
-    printf("Enter Search element - ");
-    int key;
-    scanf("%d", &key);
-    int count = 0;
-
-    for (int i = 0; i < num; i++)
-    {
-        if (ar[i]==key)
+        for (int j = num; j >= 1; j--)
         {
-            count++;
-            printf("%d found at index %d\n",key,i);
+            if (i>=j)
+            {
+                printf("*");
+            }
+            else
+            {
+                printf(" ");
+            }
         }
-    }
-
-    if (count==0){
-        printf("%d is not found in array.",key);
-    }
-    else{
-        printf("%d was found %d times",key,count);
+        printf("\n");
     }
     
     return 0;
