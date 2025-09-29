@@ -4,7 +4,7 @@ int main()
 {
     char str[100];
     printf("Enter a string - ");
-    gets(str);
+    fgets(str, 100, stdin);
 
     int len = 0;
     while (str[len] != '\0')
