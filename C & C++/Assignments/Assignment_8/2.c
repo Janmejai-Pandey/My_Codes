@@ -6,11 +6,12 @@ int main(){
     fgets(str,100,stdin);
     
     char *ptr = str;
-    while (*ptr !='\0'||*ptr!='\n')
+    int count=0;
+    while (ptr[count] !='\0'&&ptr[count]!='\n')
     {
-        ptr++;
+        count++;
     }
-    printf("Length of string = %d",ptr-str);
+    printf("Length of string = %d",count);
 
     printf("\nJanmejai Pandey 2501030199 B4\n");
     return 0;
