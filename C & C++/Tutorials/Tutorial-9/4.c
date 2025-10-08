@@ -34,7 +34,6 @@ int main(){
         printf("Enter Row 2 - ");
         scanf("%d",&r2);
     }
-    //same for columns
     printf("Enter Column 1 - ");
     int c1;
     scanf("%d",&c1);
