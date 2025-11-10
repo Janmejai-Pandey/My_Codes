@@ -1,8 +1,4 @@
 #include<stdio.h>
-int balance;
-void deposit(int balance, int amount){
-    
-}
 
 int main(){
     int num;
