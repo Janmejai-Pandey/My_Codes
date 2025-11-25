@@ -39,7 +39,7 @@ int main(){
     int k;
     scanf("%d",&k);
 
-    printf("Kth smallest element = %d",*(ptr+k-2));
+    printf("Kth smallest element = %d",*(ptr+k-1));
     free(ptr);
     ptr=NULL;
      

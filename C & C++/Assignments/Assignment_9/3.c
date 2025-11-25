@@ -16,8 +16,7 @@ int main()
     scanf("%d", &num);
 
 
-    printf("Number till %d are ",num);
-    printN(num);
+    printf("Octal equivalent of  %d is %d",num,convertOctal(num));
 
     printf("\nJanmejai Pandey 2501030199 B4 \n");
     return 0;
