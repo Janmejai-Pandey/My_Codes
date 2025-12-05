@@ -7,18 +7,18 @@ typedef struct
 }telephone;
 
 int main()
-{
-    telephone person;
-    telephone *ptr = &person;
-
+{ 
     int n;
     printf("Enter number of entries: ");
     scanf("%d", &n);
+    telephone person[n];
+    telephone *ptr = person;
+
     for (int i = 0; i < n; i++)
     {
         printf("Entry %d:\n", i + 1);
         printf("Enter name: ");
-        scanf(" %[^\n]s", ptr->name);
+        scanf(" %[^\n]s", (ptr+i)->name);
 
         printf("Enter telephone number: ");
         scanf("%d", &ptr->telephoneNumber);
@@ -27,7 +27,7 @@ int main()
     printf("Entries:\n");
     for (int i = 0; i < n; i++)
     {
-        printf("Name: %s, Telephone Number: %d\n", ptr->name, ptr->telephoneNumber);
+        printf("Name: %s, Telephone Number: %d\n",(ptr+i)->name, (ptr+i)->telephoneNumber);
     }
 
     printf("Janmejai Pandey - 2501030199 - B4\n");
