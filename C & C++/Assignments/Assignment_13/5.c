@@ -17,5 +17,7 @@ int main(){
         putchar(ch);
     }
     
+    fclose(fptr);
+    printf("Janmejai Pandey - 2501030199 - B4\n");
     return 0;
 }
