@@ -18,16 +18,16 @@ int main()
     {
         printf("Entry %d:\n", i + 1);
         printf("Enter name: ");
-        scanf(" %[^\n]s", (ptr+i)->name);
+        scanf("%s", ptr[i].name);
 
         printf("Enter telephone number: ");
-        scanf("%d", &ptr->telephoneNumber);
+        scanf("%d", &(ptr[i].telephoneNumber));
     }
 
     printf("Entries:\n");
     for (int i = 0; i < n; i++)
     {
-        printf("Name: %s, Telephone Number: %d\n",(ptr+i)->name, (ptr+i)->telephoneNumber);
+        printf("Name: %s, Telephone Number: %d\n",ptr[i].name, ptr[i].telephoneNumber);
     }
 
     printf("Janmejai Pandey - 2501030199 - B4\n");
