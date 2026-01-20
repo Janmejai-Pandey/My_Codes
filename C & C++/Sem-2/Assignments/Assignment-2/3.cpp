@@ -18,4 +18,6 @@ int main(){
 
     cout << "Sum of elements: " << sum << endl;
     delete[] arr;
+    cout << "\nJanmejai Pandey - 2501030199 - B4" << endl;
+    return 0;
 }
