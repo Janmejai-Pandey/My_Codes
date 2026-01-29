@@ -7,15 +7,6 @@ struct Book
     double price;
 };
 
-void sorts(Book books[], int start, int end) {
-    if (start < end) {
-        int pivot = partition(books, start, end);
-
-        sorts(books, start, pivot - 1);
-        sorts(books, pivot + 1, end);
-    }
-}
-
 int partition(Book books[], int start, int end) {
     double pivot = books[end].price;
     int i = start - 1;
@@ -28,6 +19,16 @@ int partition(Book books[], int start, int end) {
     }
     swap(books[i + 1], books[end]);
     return i + 1;
+}
+
+void sorts(Book books[], int start, int end) {
+    if (start < end) {
+        int pivot = partition(books, start, end);
+
+        sorts(books, start, pivot - 1);
+        sorts(books, pivot + 1, end);
+    }
+}
 
 
 int main() {
@@ -43,13 +44,18 @@ int main() {
         cout << "Book Id - ";
         cin >> books[i].bookID;
         cout << "Title - ";
-        cin >> books[i].title;
-        cout << "Price";
+        cin.ignore();
+        getline(cin,books[i].title);
+        cout << "Price - ";
         cin >> books[i].price;
     }
 
-    //quick sort price
-    quick
-    
+    sorts(books, 0, n - 1);
+
+    cout << "\nBooks sorted by price:\n";
+    for (int i = 0; i < n; i++) {
+        cout << books[i].bookID << "\t|" << books[i].title << "\t| " << books[i].price << endl;
+    }
+    cout << "Janmejai Pandey - 2501030199 - B4"<< endl;
     return 0;
 }
