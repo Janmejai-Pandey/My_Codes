@@ -17,6 +17,7 @@ int main() {
     struct Employee emp[n];
     for (int i = 0; i < n; i++) {
         cout << "Employee " << i + 1 << endl;
+        cin.ignore();
         cout << "Name: ";
         getline(cin, emp[i].name);
         cout << "Employee ID: ";
@@ -40,6 +41,7 @@ int main() {
 
     cout << "Enter Employee ID or Name to search: ";
     string search;
+    cin.ignore();
     getline(cin, search);
 
     bool found = false;
