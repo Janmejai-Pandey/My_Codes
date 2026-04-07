@@ -8,10 +8,12 @@ class Employee{
     Employee(char *n){
         myName_p = n;
     };
-    ~Employee(){};
+    ~Employee(){
+        delete myName_p;
+    };
     
     void disp(){
-        
+        cout << "Employee name - " << myName_p;
     }
 };
 
@@ -24,5 +26,8 @@ class Company{
         name_p = n;
         myEmp_p = emp;
     };
-    ~Company(){};
+    ~Company(){
+        delete name_p;
+        delete myEmp_p;
+    };
 };
