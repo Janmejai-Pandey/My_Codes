@@ -1,110 +1,52 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
-class Course;      // forward declaration
-class Department;  // forward declaration
+typedef struct nodeType{
+    int info;
+    nodeType *link;
 
-//-------------------- Student --------------------
-class Student {
-    string name_;
-    vector<Course*> courses_;   // non-owning links
-
-public:
-    Student(const string& name) : name_(name) {}
-
-    string getName() const {
-        return name_;
+    nodeType(int n){
+        info = n;
+        link =  nullptr;
     }
+}nodeType;
 
-    void addCourse(Course* c) {
-        courses_.push_back(c);
-    }
-
-    void showDepartments() const;
-};
-
-//-------------------- Department --------------------
-class Department {
-    string name_;
-    vector<Course*> courses_;   // non-owning links
-
-public:
-    Department(const string& name) : name_(name) {}
-
-    string getName() const {
-        return name_;
-    }
-
-    void addCourse(Course* c) {
-        courses_.push_back(c);
-    }
-
-    void showStudents() const;
-};
-
-//-------------------- Association Class: Course --------------------
-class Course {
-    Student* student_;         // associated student
-    Department* department_;   // associated department
-    string courseName_;
-
-public:
-    Course(Student* s, Department* d, const string& cname)
-        : student_(s), department_(d), courseName_(cname) {
-        student_->addCourse(this);
-        department_->addCourse(this);
-    }
-
-    Student* getStudent() const {
-        return student_;
-    }
-
-    Department* getDepartment() const {
-        return department_;
-    }
-
-    string getCourseName() const {
-        return courseName_;
-    }
-};
-
-//-------------------- Member Function Definitions --------------------
-void Student::showDepartments() const {
-    cout << "Student: " << name_ << "\nAssociated Departments:\n";
-    for (auto c : courses_) {
-        cout << "  " << c->getDepartment()->getName()
-             << " through course: " << c->getCourseName() << endl;
-    }
-}
-
-void Department::showStudents() const {
-    cout << "Department: " << name_ << "\nAssociated Students:\n";
-    for (auto c : courses_) {
-        cout << "  " << c->getStudent()->getName()
-             << " through course: " << c->getCourseName() << endl;
-    }
-}
-
-//-------------------- Main --------------------
 int main() {
-    Student s1("Amit");
-    Student s2("Riya");
 
-    Department d1("Computer Science");
-    Department d2("Mathematics");
+    nodeType *first, *last, * newNode;
+    first = nullptr;
+    last = nullptr;
+    int num;
 
-    // many-to-many associations
-    Course c1(&s1, &d1, "Data Structures");
-    Course c2(&s1, &d2, "Statistics");
-    Course c3(&s2, &d1, "Operating Systems");
+    num = 2;
+    newNode = new nodeType(num);
+    first = newNode;
+    last = newNode;
 
-    cout << "\n";
-    s1.showDepartments();
+    num = 15;
+    newNode = new nodeType(num);
+    last -> link = newNode;
+    last = newNode;
+    
+    num = 8;
+    newNode = new nodeType(num);
+    last -> link = newNode;
+    last = newNode;
 
-    cout << "\n";
-    d1.showStudents();
+    num = 24;
+    newNode = new nodeType(num);
+    last -> link = newNode;
+    last = newNode;
 
+    num = 34;
+    newNode = new nodeType(num);
+    last -> link = newNode;
+    last = newNode;
+
+    nodeType *curr = first;
+    while(curr != nullptr){
+        cout << curr->info << " ";
+        curr = curr -> link;
+    }
     return 0;
 }
